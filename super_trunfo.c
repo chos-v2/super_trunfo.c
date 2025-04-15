@@ -10,6 +10,9 @@
         float area;
         float pib;
         int pontosT;
+        float densPop;
+        float pibCapt;
+
 
         //carta 2
         char estado1;
@@ -19,6 +22,9 @@
         float area1;
         float pib1;
         int pontosT1;
+        float densPop1;
+        float pibCapt1;
+
 
 
             printf("Carta 1:\n");
@@ -78,6 +84,12 @@
             printf("Numero de pontos turisticos: \n");
             scanf(" %d", &pontosT1);
 
+            densPop = populacao / area;
+            pibCapt = populacao / pib;
+
+            densPop1 = populacao1 / area1;
+            pibCapt1 = populacao1 / pib1;
+
             printf("CARTAS CADASTRADAS\n");
 
             printf("----- CARTA 1 -----\n");
@@ -88,6 +100,8 @@
             printf("AREA: %.2f KM²\n", area);
             printf("PIB: %.2f BILHOES DE REAIS\n", pib);
             printf("NUMERO DE PONTOS TURISTICOS: %d\n", pontosT);
+            printf("DENSIDADE POPULACIONAL: %f HAB/KM²\n", densPop);
+            printf("PIB PER CAPITA: %f\n", pibCapt);
 
             //USANDO O NOME DA VARIAVEL JUNTO DO ESPECIFICADOR DE FORMATO PRA ADICIONAR O CONTEUDO DA VARIAVEL NA STRING
 
@@ -99,6 +113,8 @@
             printf("AREA: %.2f KM²\n", area1);
             printf("PIB: %.2f BILHOES DE REAIS\n", pib1);
             printf("NUMERO DE PONTOS TURISTICOS: %d\n", pontosT1);
+            printf("DENSIDADE POPULACIONAL: %f HAB/KM²\n", densPop1);
+            printf("PIB PER CAPITA: %f\n", pibCapt1);
 
 
 
