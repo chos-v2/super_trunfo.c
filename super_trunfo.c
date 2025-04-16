@@ -146,6 +146,14 @@
 
             printf("CARTA %d VENCEU!\n", (pontosCarta1 > pontosCarta2) * 1 + (pontosCarta2 > pontosCarta1) * 2);
 
+            printf("COMPARAÇÃO DE CARTAS: ATRIBUTO(POPULACAO)\n");
 
-
+            printf("Carta 1: populacao de %s: %d\n", nomecidade, populacao);
+            printf("Carta 2: populacao de %s: %d\n", nomecidade1, populacao1);
+            
+            if (populacao > populacao1){
+                printf("resultado: carta 1 %s venceu\n", nomecidade);
+            } else if (populacao1 > populacao) {
+                printf("resultado: carta 2 %s venceu\n", nomecidade1);
+            }
     }
