@@ -6,27 +6,24 @@
         char estado;
         char codigo1[4];
         char nomecidade[50] = "";
-        int populacao;
+        unsigned long int populacao;
         float area;
         float pib;
         int pontosT;
         float densPop;
         float pibCapt;
 
-
         //carta 2
         char estado1;
         char codigo2[4];
         char nomecidade1[50] = "";
-        int populacao1;
+        unsigned long int populacao1;
         float area1;
         float pib1;
         int pontosT1;
         float densPop1;
         float pibCapt1;
-
-
-
+            
             printf("Carta 1:\n");
 
             printf("Estado: \n");
@@ -83,12 +80,30 @@
 
             printf("Numero de pontos turisticos: \n");
             scanf(" %d", &pontosT1);
+            
+            //cálculos
 
             densPop = populacao / area;
-            pibCapt = populacao / pib;
-
+            pibCapt = pib / populacao;
+        float inversoDensidade = 1.0f / (densPop + 0.0001f);
+        float superPoder = (float) populacao + area + pib + (float)pontosT + pibCapt + inversoDensidade;
+            
             densPop1 = populacao1 / area1;
-            pibCapt1 = populacao1 / pib1;
+            pibCapt1 = pib1 / populacao1;
+        float inversoDensidade1 = 1.0f / (densPop1 + 0.0001f);
+        float superPoder1 = (float) populacao1 + area1 + pib1 + (float)pontosT1 + pibCapt1 + inversoDensidade1;
+
+            // Comparações (1 = Carta 1 vence, 0 = Carta 2 vence)
+
+        int vPop = populacao > populacao1;
+        int vArea = area > area1;
+        int vPib = pib > pib1;
+        int vPontos = pontosT > pontosT1;
+        int vPibCap = pibCapt > pibCapt1;
+        int vDens = densPop < densPop1;
+        int vPoder = superPoder > superPoder1;
+            
+            //exibição das cartas
 
             printf("CARTAS CADASTRADAS\n");
 
@@ -115,6 +130,21 @@
             printf("NUMERO DE PONTOS TURISTICOS: %d\n", pontosT1);
             printf("DENSIDADE POPULACIONAL: %f HAB/KM²\n", densPop1);
             printf("PIB PER CAPITA: %f\n", pibCapt1);
+
+            char *vencedor[2] = {"Carta 2 venceu (0)", "Carta 1 venceu (1)"};
+
+            printf("POPULACAO: %s\n", vencedor[vPop]);
+            printf("AREA: %s\n", vencedor[vArea]);
+            printf("PIB: %s\n", vencedor[vPib]);
+            printf("PONTOS TURISTICOS: %s\n", vencedor[vPontos]);
+            printf("DENSIDADE POPULACIONAL: %s\n", vencedor[vDens]);
+            printf("PIB PER CAPITA: %s\n", vencedor[vPibCap]);
+            printf("SUPER PODER: %s\n", vencedor[vPoder]);
+
+            int pontosCarta1 = vPop + vArea + vPib + vPontos + vPibCap + vDens + vPoder;
+            int pontosCarta2 = 7 - pontosCarta1;
+
+            printf("CARTA %d VENCEU!\n", (pontosCarta1 > pontosCarta2) * 1 + (pontosCarta2 > pontosCarta1) * 2);
 
 
 
